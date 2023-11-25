@@ -1,24 +1,25 @@
 import streamlit as st
 import pinecone      
 import openai
-openai.api_key = "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"
+openai.api_key = "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"
 
 from sentence_transformers import SentenceTransformer
 model = SentenceTransformer('sentence-transformers/all-MiniLM-L6-v2')
 
-pinecone.init(      
-	api_key='71a7b837-5adb-4e14-b6be-f40d6e978c0a',      
-	environment='us-central1-gcp'      
-)      
-
-index = pinecone.Index('constitution-chatbot')
-
-
+pinecone.init(
+	api_key='ad3e7100-9bd0-444f-a8fd-01e274752c65',
+	environment='gcp-starter'
+)
+index = pinecone.Index('ind')
 def get_conversation_string():
     conversation_string = ""
-    for i in range(len(st.session_state['responses'])-1):        
+    print(st.session_state['responses'])
+
+    for i in range(len(st.session_state['responses'])-1):
+
         conversation_string += "Human: "+st.session_state['requests'][i] + "\n"
         conversation_string += "Bot: "+ st.session_state['responses'][i+1] + "\n"
+
     return conversation_string
 
 

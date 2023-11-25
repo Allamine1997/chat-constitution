@@ -14,7 +14,7 @@ from langchain.prompts import (
     MessagesPlaceholder
 )
 
-llm = ChatOpenAI(model_name="gpt-3.5-turbo", openai_api_key="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")
+llm = ChatOpenAI(model_name="gpt-3.5-turbo", openai_api_key="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")
 
 
 st.title("Constitution du Tchad de 2018")
@@ -85,4 +85,5 @@ except PineconeProtocolError:
 
 except Exception as e:
     st.header (e.__class__.__name__)
+    print(f"Erreur API: {e}")
 
